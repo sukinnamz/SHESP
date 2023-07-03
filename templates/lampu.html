@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% block title %} Monitoring dan Control Lampu{% endblock %}
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-6 col-md-4">
+      <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">{% for pin in pins %}
+                    <div class="text-md font-weight-bold text-primary text-uppercase mb-1">
+                        {{ pins[pin].name }}</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                    {% if pins[pin].state == 'False' %} Mati
+                    {% else %} Menyala
+                    {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="col-auto">
+                    <a href="/esp8266/0/1" class="btn btn-outline-success btn-circle">
+                        <i class="fas fa-check"></i>
+                    </a>
+                    <a href="/esp8266/0/0" class="btn btn-outline-danger btn-circle">
+                        <i class="fas fa-power-off"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div><br>
+    <div class="col-xs-6 col-md-4">
+      <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                 <div class="col mr-2">{% for pin in pins1 %}
+                    <div class="text-md font-weight-bold text-primary text-uppercase mb-1">
+                        {{ pins1[pin].name }}</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                    {% if pins1[pin].state == 'False' %} Mati
+                    {% else %} Menyala
+                    {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="col-auto">
+                    <a href="/esp8266_2/0/1" class="btn btn-outline-success btn-circle">
+                        <i class="fas fa-check"></i>
+                    </a>
+                    <a href="/esp8266_2/0/0" class="btn btn-outline-danger btn-circle">
+                        <i class="fas fa-power-off"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div><br>
+  <div class="col-xs-6 col-md-4">
+    <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                 <div class="col mr-2">{% for pin in pins2 %}
+                    <div class="text-md font-weight-bold text-primary text-uppercase mb-1">
+                        {{ pins2[pin].name }}</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                    {% if pins2[pin].state == 'False' %} Mati
+                    {% else %} Menyala
+                    {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="col-auto">
+                    <a href="/esp8266_3/0/1" class="btn btn-outline-success btn-circle">
+                        <i class="fas fa-check"></i>
+                    </a>
+                    <a href="/esp8266_3/0/0" class="btn btn-outline-danger btn-circle">
+                        <i class="fas fa-power-off"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div><br>
+      <div class="col-xs-6 col-md-4">
+    <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                 <div class="col mr-2">{% for pin in pins3 %}
+                    <div class="text-md font-weight-bold text-primary text-uppercase mb-1">
+                        {{ pins3[pin].name }}</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                    {% if pins3[pin].state == 'False' %} Mati
+                    {% else %} Menyala
+                    {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="col-auto">
+                    <a href="/esp8266_4/0/1" class="btn btn-outline-success btn-circle">
+                        <i class="fas fa-check"></i>
+                    </a>
+                    <a href="/esp8266_4/0/0" class="btn btn-outline-danger btn-circle">
+                        <i class="fas fa-power-off"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div><br>
+    </div>
+    </div>
+  {% block chart %} {% endblock %}
+  {% endblock %}

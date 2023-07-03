@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+   <title>RPi Web Server</title>
+   <!-- Latest compiled and minified CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+   <!-- Optional theme -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+   <!-- Latest compiled and minified JavaScript -->
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <style>
+   table, th, td {
+      border:5px solid black;
+      border-collapse: collapse;
+   }
+   
+   th, td {
+      padding: 10px;
+   }
+   </style>
+</head>
+
+<body>
+   <h1 align="center"><b>RPi Web Server - ESP8266 MQTT</b></h1>
+   <table style="width:100%">
+   
+   <tr bgcolor="yellow">
+   <th><h1 align="center"><b>Ruangan</b></h1></th>
+   <th><h1 align="center"><b>Status</b></h1></th>
+   <th><h1 align="center"><b>ESP8266</b></h1></th>
+   </tr>
+      
+   <tr>
+   <th bgcolor="skyblue">{% for pin in pins %}
+   <h2>{{ pins[pin].name }}
+   {% if pins[pin].state == 'False' %}
+      <a href="/esp8266/{{pin}}/1" class="btn btn-block btn-lg btn-success" role="button">Turn on</a></div></div>
+      <th bgcolor="red"><h2 align="center"><strong>off</strong></h2><div class="row"><div class="col-md-2"></th></h2>
+   {% else %}
+      <a href="/esp8266/{{pin}}/0" class="btn btn-block btn-lg btn-danger" role="button">Turn off</a></div></div>
+      <th bgcolor="lightgreen"><h2 align="center"><strong>on</strong></h2><div class="row"><div class="col-md-2"></th></h2>
+   {% endif %}
+   {% endfor %}</th>
+   <th bgcolor="skyblue"><h2 align="center">ESP 1</h2></th>
+   <br>
+   </tr>
+   
+   <tr>
+   <th bgcolor="skyblue">{% for pin in pins1 %}
+   <h2>{{ pins1[pin].name }}
+   {% if pins1[pin].state == 'False' %}
+      <a href="/esp8266_2/{{pin}}/1" class="btn btn-block btn-lg btn-success" role="button">Turn on</a></div></div>
+      <th bgcolor="red"><h2 align="center"><strong>off</strong></h2><div class="row"><div class="col-md-2"></th></h2>
+   {% else %}
+      <a href="/esp8266_2/{{pin}}/0" class="btn btn-block btn-lg btn-danger" role="button">Turn off</a></div></div>
+      <th bgcolor="lightgreen"><h2 align="center"><strong>on</strong></h2><div class="row"><div class="col-md-2"></th></h2>
+   {% endif %}
+   {% endfor %}</th>
+   <th bgcolor="skyblue"><h2 align="center">ESP 2</h2></th>
+   </tr>
+   <br>
+   
+   <tr>
+   <th bgcolor="skyblue">{% for pin in pins2 %}
+   <h2>{{ pins2[pin].name }}
+   {% if pins2[pin].state == 'False' %}
+      <a href="/esp8266_3/{{pin}}/1" class="btn btn-block btn-lg btn-success" role="button">Turn on</a></div></div>
+      <th bgcolor="red"><h2 align="center"><strong>off</strong></h2><div class="row"><div class="col-md-2"></th></h2>
+   {% else %}
+      <a href="/esp8266_3/{{pin}}/0" class="btn btn-block btn-lg btn-danger" role="button">Turn off</a></div></div>
+      <th bgcolor="lightgreen"><h2 align="center"><strong>on</strong></h2><div class="row"><div class="col-md-2"></th></h2>
+   {% endif %}
+   {% endfor %}</thy>
+   <th bgcolor="skyblue"><h2 align="center">ESP 3</h2></th>
+   </tr>
+   <br>
+   
+</body>
+</html>

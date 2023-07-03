@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>Web ESP</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+   <!-- Optional theme -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+   <!-- Latest compiled and minified JavaScript -->
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+         table, th, td {
+      border:5px solid black;
+      border-collapse: collapse;
+        }
+   
+        th, td {
+      padding: 10px;
+        }     
+   
+        * {
+            box-sizing: border-box;
+        }
+ 
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+ 
+        /* Style the header */
+        header {
+            background-color: green;
+            padding: 5px;
+            text-align: center;
+            font-size: 35px;
+            color: white;
+        }
+ 
+        /* Create two columns/boxes that floats next to each other */
+        nav {
+            float: left;
+            width: 20%;
+            height: 625px;
+            /* only for demonstration, should be removed */
+            background: grey;
+            padding: 20px;
+        }
+ 
+        /* Style the list inside the menu */
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+ 
+        nav a
+        {
+            color: white;
+        }
+ 
+        article {
+            float: left;
+            padding: 20px;
+            width: 80%;
+            background-color: #f1f1f1;
+            height: 300px;
+            /* only for demonstration, should be removed */
+        }
+ 
+        /* Clear floats after the columns */
+        section:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+ 
+        /* Style the footer */
+        footer {
+            background-color: green;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+ 
+        /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+        @media (max-width: 600px) {
+ 
+            nav,
+            article {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+ 
+<body>
+ 
+    <header>
+        <h2>RPi Web Server - ESP8266 MQTT</h2>
+    </header>
+ 
+    <section>
+        <nav>
+            <ul>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+            </ul>
+        </nav>
+ 
+        <article> 
+            <h3 align="center"><b>RPi Web Server - ESP8266 MQTT</b></h3>
+           <table style="width:100%">
+            <tr bgcolor="yellow">
+                <th><h3 align="center"><b>Ruangan</b></h3></th>
+                <th><h3 align="center"><b>Status</b></h3></th>
+                <th><h3 align="center"><b>ESP8266</b></h3></th>
+                </tr>
+                   
+                <tr>
+                <th bgcolor="skyblue">{% for pin in pins %}
+                <h2>{{ pins[pin].name }}
+                {% if pins[pin].state == 'False' %}
+                   <a href="/esp8266/{{pin}}/1" class="btn btn-block btn-lg btn-success" role="button">Turn on</a></div></div>
+                   <th bgcolor="red"><h2 align="center"><strong>off</strong></h2><div class="row"><div class="col-md-2"></th></h2>
+                {% else %}
+                   <a href="/esp8266/{{pin}}/0" class="btn btn-block btn-lg btn-danger" role="button">Turn off</a></div></div>
+                   <th bgcolor="lightgreen"><h2 align="center"><strong>on</strong></h2><div class="row"><div class="col-md-2"></th></h2>
+                {% endif %}
+                {% endfor %}</th>
+                <th bgcolor="skyblue"><h3 align="center">ESP 1</h3></th>
+                <br>
+                </tr>
+                
+                <tr>
+                <th bgcolor="skyblue">{% for pin in pins1 %}
+                <h2>{{ pins1[pin].name }}
+                {% if pins1[pin].state == 'False' %}
+                   <a href="/esp8266_2/{{pin}}/1" class="btn btn-block btn-lg btn-success" role="button">Turn on</a></div></div>
+                   <th bgcolor="red"><h2 align="center"><strong>off</strong></h2><div class="row"><div class="col-md-2"></th></h2>
+                {% else %}
+                   <a href="/esp8266_2/{{pin}}/0" class="btn btn-block btn-lg btn-danger" role="button">Turn off</a></div></div>
+                   <th bgcolor="lightgreen"><h2 align="center"><strong>on</strong></h2><div class="row"><div class="col-md-2"></th></h2>
+                {% endif %}
+                {% endfor %}</th>
+                <th bgcolor="skyblue"><h3 align="center">ESP 2</h3></th>
+                </tr>
+                <br>
+                
+                <tr>
+                <th bgcolor="skyblue">{% for pin in pins2 %}
+                <h2>{{ pins2[pin].name }}
+                {% if pins2[pin].state == 'False' %}
+                   <a href="/esp8266_3/{{pin}}/1" class="btn btn-block btn-lg btn-success" role="button">Turn on</a></div></div>
+                   <th bgcolor="red"><h2 align="center"><strong>off</strong></h2><div class="row"><div class="col-md-2"></th></h2>
+                {% else %}
+                   <a href="/esp8266_3/{{pin}}/0" class="btn btn-block btn-lg btn-danger" role="button">Turn off</a></div></div>
+                   <th bgcolor="lightgreen"><h2 align="center"><strong>on</strong></h2><div class="row"><div class="col-md-2"></th></h2>
+                {% endif %}
+                {% endfor %}</th>
+                <th bgcolor="skyblue"><h3 align="center">ESP 3</h3></th>
+                </tr>
+            </table>
+        </article>
+
+    </section>
+
+    <footer>
+    <p>BBPPMPV BOE | MALANG</p>
+    </footer>
+
+  </body>
+
+  
+</html>

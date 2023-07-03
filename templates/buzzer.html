@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %} Dashboard{% endblock %}
+{% block content %}
+<div class="container">
+<div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h1>Hidupkan Buzzer</h1>
+          <p class="card-text">Tekan tombol dibawah untuk menyalakan buzzer.</p>
+          <a href="/buzzer/on" class="btn btn-success">On</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h1>Matikan Buzzer</h1>
+          <p class="card-text">Tekan tombol dibawah untuk mematikan buzzer.</p>
+          <a href="/buzzer/off" class="btn btn-danger">Off</a>
+        </div>
+      </div>
+    </div>
+  </div
+</div>
+  {% block chart %} {% endblock %}
+  {% endblock %}
